@@ -66,6 +66,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Win32 API";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Win32ApiButton_Click);
             // 
             // textBox1
             // 
