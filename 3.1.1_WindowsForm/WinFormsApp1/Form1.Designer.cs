@@ -25,14 +25,19 @@
         /// <summary>
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
+        ///  Form1のコンストラクタで実行。
+        ///  Visual Studioのデザイナーにより自動出力。プロパティの変更に伴い書き変わる。
         /// </summary>
         private void InitializeComponent()
         {
+            // 部品コンポーネントの生成
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
+
+            // 部品コンポーネントに対するプロパティの設定
             // 
             // label1
             // 
@@ -43,6 +48,7 @@
             this.label1.Size = new System.Drawing.Size(218, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Hello, .NET6 World.";
+            // イベントハンドラの設定(Form1の同名メソッドをデリゲートに適用)
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
