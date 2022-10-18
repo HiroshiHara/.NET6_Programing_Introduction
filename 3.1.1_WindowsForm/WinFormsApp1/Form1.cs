@@ -8,9 +8,15 @@ namespace WinFormsApp1
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void HelloButton_Click(object sender, EventArgs e)
         {
-
+            var name = textBox1.Text;
+            MessageBox.Show(
+                $"こんにちわ、{name}さん",
+                ".NET6の解説",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+                );
         }
     }
 }
