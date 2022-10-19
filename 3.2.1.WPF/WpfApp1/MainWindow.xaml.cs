@@ -23,16 +23,14 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+            this.Loaded += mainWindow_Loaded;
         }
 
-        private void Button1_Click(object sender, RoutedEventArgs e)
+        MainViewModel _vm;
+        private void mainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            var name = TextBox1.Text;
-            MessageBox.Show(
-                $"こんにちわ、{name}さん",
-                ".NET6の解説",
-                MessageBoxButton.OK, MessageBoxImage.Information
-            );
+            _vm = new MainViewModel();
+            this.DataContext = _vm;
         }
     }
 }

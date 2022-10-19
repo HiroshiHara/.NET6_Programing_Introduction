@@ -8,13 +8,13 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid x:Name="Grid1" Margin="4,4,4,4">
         <Grid.RowDefinitions>
-            <RowDefinition Height="71*"/>
-            <RowDefinition Height="71*"/>
-            <RowDefinition Height="71*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="Label1" Content="Hello, .NET6 World." HorizontalAlignment="Center" Margin="0,76,0,0" VerticalAlignment="Top" Height="63" Width="408" Background="{x:Null}" FontSize="36" Foreground="#FFD41313" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TextBox1" Grid.Row="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="344" Height="96" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,23,0,0" Grid.RowSpan="2"/>
-        <Button x:Name="Button1" Grid.Row="2" Content="PUSH" HorizontalAlignment="Center" Margin="0,23,0,0" VerticalAlignment="Top" Height="56" Width="328" Cursor="Hand" Click="Button1_Click"/>
+        <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" Margin="0,76,0,0" VerticalAlignment="Center" Height="63" Width="408" Background="{x:Null}" FontSize="36" Foreground="#FFD41313" />
+        <TextBox x:Name="TextBox1" Grid.Row="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Width="344" Height="96" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,23,0,0" Grid.RowSpan="2"/>
+        <Button x:Name="Button1" Grid.Row="2" Content="PUSH" HorizontalAlignment="Center" Margin="0,23,0,0" VerticalAlignment="Top" Height="56" Width="328" Cursor="Hand" Command="{Binding Clicked}"/>
 
     </Grid>
 </Window>
