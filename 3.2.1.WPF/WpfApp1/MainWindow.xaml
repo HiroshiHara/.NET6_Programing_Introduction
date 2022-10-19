@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Label x:Name="Label1" Content="Hello, .NET6 World." HorizontalAlignment="Center" Margin="0,76,0,0" VerticalAlignment="Top" Height="63" Width="408" Background="{x:Null}" FontSize="36" Foreground="#FFD41313" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TextBox1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="344" Height="96" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="Button1" Content="PUSH" HorizontalAlignment="Center" Margin="0,291,0,0" VerticalAlignment="Top" Height="56" Width="328"/>
 
     </Grid>
 </Window>
