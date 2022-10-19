@@ -24,5 +24,15 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        private void Button1_Click(object sender, RoutedEventArgs e)
+        {
+            var name = TextBox1.Text;
+            MessageBox.Show(
+                $"こんにちわ、{name}さん",
+                ".NET6の解説",
+                MessageBoxButton.OK, MessageBoxImage.Information
+            );
+        }
     }
 }
