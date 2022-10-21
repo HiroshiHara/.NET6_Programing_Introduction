@@ -2,10 +2,6 @@
   "profiles": {
     "WinFormsControlLibrary1": {
       "commandName": "Project"
-    },
-    "プロファイル 1": {
-      "commandName": "Project",
-      "workingDirectory": "E:\\Workspace\\.NET6\\3.3.1.WindowsFormControl\\WinFormsApp1\\bin\\Debug\\net6.0-windows"
     }
   }
 }
