@@ -80,6 +80,7 @@
             this.checkBox.TabIndex = 1;
             this.checkBox.Text = "Stretch";
             this.checkBox.UseVisualStyleBackColor = true;
+            this.checkBox.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // flowLayoutPanel1
             // 
@@ -102,6 +103,7 @@
             this.showButton.TabIndex = 0;
             this.showButton.Text = "Show a picture";
             this.showButton.UseVisualStyleBackColor = true;
+            this.showButton.Click += new System.EventHandler(this.ShowButton_Click);
             // 
             // clearButton
             // 
@@ -111,6 +113,7 @@
             this.clearButton.TabIndex = 1;
             this.clearButton.Text = "Clear the picture";
             this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // backgroundButton
             // 
@@ -120,6 +123,7 @@
             this.backgroundButton.TabIndex = 2;
             this.backgroundButton.Text = "Set the background color";
             this.backgroundButton.UseVisualStyleBackColor = true;
+            this.backgroundButton.Click += new System.EventHandler(this.BackgroundButton_Click);
             // 
             // closeButton
             // 
@@ -129,6 +133,7 @@
             this.closeButton.TabIndex = 3;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // openFileDialog1
             // 
