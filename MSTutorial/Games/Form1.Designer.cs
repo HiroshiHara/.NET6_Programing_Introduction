@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.TimeLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PlusLeftLabel = new System.Windows.Forms.Label();
@@ -51,6 +52,7 @@
             this.DivideRightLabel = new System.Windows.Forms.Label();
             this.DivideLeftLabel = new System.Windows.Forms.Label();
             this.StartButton = new System.Windows.Forms.Button();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Sum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Difference)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Product)).BeginInit();
@@ -280,6 +282,11 @@
             this.StartButton.UseVisualStyleBackColor = true;
             this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
+            // Timer
+            // 
+            this.Timer.Interval = 1000;
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -346,5 +353,6 @@
         private Label DivideRightLabel;
         private Label DivideLeftLabel;
         private Button StartButton;
+        private System.Windows.Forms.Timer Timer;
     }
 }
