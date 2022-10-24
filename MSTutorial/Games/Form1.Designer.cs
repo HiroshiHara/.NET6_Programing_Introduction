@@ -44,7 +44,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.TimesRightLabel = new System.Windows.Forms.Label();
-            this.TimeLeftLabel = new System.Windows.Forms.Label();
+            this.TimesLeftLabel = new System.Windows.Forms.Label();
             this.Quotient = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -123,7 +123,6 @@
             this.Sum.Name = "Sum";
             this.Sum.Size = new System.Drawing.Size(100, 39);
             this.Sum.TabIndex = 1;
-            this.Sum.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // Difference
             // 
@@ -211,15 +210,15 @@
             this.TimesRightLabel.Text = "?";
             this.TimesRightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // TimeLeftLabel
+            // TimesLeftLabel
             // 
-            this.TimeLeftLabel.Font = new System.Drawing.Font("Yu Gothic UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TimeLeftLabel.Location = new System.Drawing.Point(50, 165);
-            this.TimeLeftLabel.Name = "TimeLeftLabel";
-            this.TimeLeftLabel.Size = new System.Drawing.Size(60, 50);
-            this.TimeLeftLabel.TabIndex = 12;
-            this.TimeLeftLabel.Text = "?";
-            this.TimeLeftLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TimesLeftLabel.Font = new System.Drawing.Font("Yu Gothic UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TimesLeftLabel.Location = new System.Drawing.Point(50, 165);
+            this.TimesLeftLabel.Name = "TimesLeftLabel";
+            this.TimesLeftLabel.Size = new System.Drawing.Size(60, 50);
+            this.TimesLeftLabel.TabIndex = 12;
+            this.TimesLeftLabel.Text = "?";
+            this.TimesLeftLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Quotient
             // 
@@ -279,6 +278,7 @@
             this.StartButton.TabIndex = 0;
             this.StartButton.Text = "Start the Quiz";
             this.StartButton.UseVisualStyleBackColor = true;
+            this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
             // Form1
             // 
@@ -295,7 +295,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.TimesRightLabel);
-            this.Controls.Add(this.TimeLeftLabel);
+            this.Controls.Add(this.TimesLeftLabel);
             this.Controls.Add(this.Difference);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
@@ -339,7 +339,7 @@
         private Label label6;
         private Label label7;
         private Label TimesRightLabel;
-        private Label TimeLeftLabel;
+        private Label TimesLeftLabel;
         private NumericUpDown Quotient;
         private Label label10;
         private Label label11;
