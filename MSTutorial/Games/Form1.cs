@@ -1,3 +1,5 @@
+using System.Media;
+
 namespace Games
 {
     public partial class Form1 : Form
@@ -28,6 +30,9 @@ namespace Games
         /// </summary>
         public void StartTheQuiz()
         {
+            // タイマーの背景色を元に戻す
+            TimeLabel.BackColor = DefaultBackColor;
+
             addend1 = randomizer.Next(51);
             addend2 = randomizer.Next(51);
             // 式のラベルに乱数をセット
@@ -96,7 +101,7 @@ namespace Games
         /// <summary>
         /// タイマーのインターバル(1秒)ごとに発火する<br/>
         /// ①：<see cref="CheckTheAnswer"/>がtrueのとき、タイマーを停止し正解ウィンドウを表示する<br/>
-        /// ②：①でないとき、タイマーの表示から1秒減らす<br/>
+        /// ②：①でないとき、タイマーの表示から1秒減らす、残り5秒の時、残り時間の背景を赤に変更する<br/>
         /// ③：①②でないとき(=残り時間がなくなったとき)タイマーを停止し終了ウィンドウを表示する
         /// </summary>
         /// <param name="sender">未使用</param>
@@ -113,6 +118,10 @@ namespace Games
             {
                 timeLeft--;
                 TimeLabel.Text = timeLeft + " seconds";
+                if (timeLeft == 5)
+                {
+                    TimeLabel.BackColor = Color.Red;
+                }
             }
             else
             {
@@ -125,6 +134,57 @@ namespace Games
                 Quotient.Value = dividend / divisor;
                 StartButton.Enabled = true;
             }
+        }
+
+        /// <summary>
+        /// 全ての解答欄に適用するイベント<br/>
+        /// フォーカス時、現在の解答を全選択する
+        /// </summary>
+        /// <param name="sender"><see cref="NumericUpDown"/>解答欄コントロール</param>
+        /// <param name="e">未使用</param>
+        private void Answer_Enter(object sender, EventArgs e)
+        {
+            NumericUpDown? answerBox = sender as NumericUpDown;
+            if (answerBox != null)
+            {
+                int lengthOfAnswer = answerBox.Value.ToString().Length;
+                answerBox.Select(0, lengthOfAnswer);
+            }
+        }
+
+        /// <summary>
+        /// 全ての解答欄に適用するイベント<br/>
+        /// 解答が正しい時、システムサウンドを再生する
+        /// </summary>
+        /// <param name="sender">未使用</param>
+        /// <param name="e">未使用</param>
+        private void Answer_Changed(object sender, EventArgs e)
+        {
+            // タイマー稼働時のみ判定する
+            if (Timer.Enabled)
+            {
+                NumericUpDown? answerBox = sender as NumericUpDown;
+                if (answerBox != null)
+                {
+                    string name = answerBox.Name;
+                    if (((name == "Sum") && (addend1 + addend2 == Sum.Value))
+                        || (name == "Difference") && (minuend - subtrahend == Difference.Value)
+                        || (name == "Product") && (multiplicand * multiplier == Product.Value)
+                        || (name == "Quotient") && (dividend / divisor == Quotient.Value))
+                    {
+                        PlaySound();
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// システムサウンドを再生する
+        /// </summary>
+        private void PlaySound()
+        {
+            SoundPlayer player = new SoundPlayer(@"C:\Windows\Media\tada.wav");
+            player.Play();
         }
     }
 }
