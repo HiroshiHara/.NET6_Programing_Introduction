@@ -66,9 +66,18 @@ namespace Matching_Game
                     clickLabel.ForeColor = Color.Black;
                     return;
                 }
-                // 2つ目のラベルをクリックしたときのみタイマーを開始
                 secondClicked = clickLabel;
                 secondClicked.ForeColor = Color.Black;
+                // 2つ目のアイコンをクリックするたびクリア判定を行う
+                CheckForWinner();
+                // ラベルのアイコンが一致した場合、文字色をそのままにラベルのトレースを終了する
+                if (firstClicked.Text == secondClicked.Text)
+                {
+                    firstClicked = null;
+                    secondClicked = null;
+                    return;
+                }
+                // 異なるラベルのペアを選択したときのみタイマーを開始
                 Timer.Start();
             }
         }
@@ -90,6 +99,24 @@ namespace Matching_Game
             // クリック済みのラベルをクリアする
             firstClicked = null;
             secondClicked = null;
+        }
+
+        private void CheckForWinner()
+        {
+            // 全てのラベルの文字色が背景色と同じでない場合、クリアと判定する
+            foreach (var ctrl in tableLayoutPanel1.Controls)
+            {
+                Label? iconLabel = ctrl as Label;
+                if (iconLabel != null)
+                {
+                    if (iconLabel.ForeColor == iconLabel.BackColor)
+                    {
+                        return;
+                    }
+                }
+            }
+            MessageBox.Show("You matched all the icons!", "Congratulations");
+            Close();
         }
     }
 }
